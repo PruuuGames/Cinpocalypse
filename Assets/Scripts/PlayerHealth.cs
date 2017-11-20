@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour {
 	void Awake ()
     {
         //m_animator = GetComponent <Animator> ();
-        currentHealth = startingHealth;
+        m_currentHealth = m_startingHealth;
     }	
 
 	void Update () {
