@@ -22,7 +22,7 @@ public class PlayerShooting : MonoBehaviour
  
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire") && Time.time > m_nextFire && !m_isPaused)
+        if (Input.GetButton("Fire1") && Time.time > m_nextFire && !m_isPaused)
         {
             Shoot();
         }
@@ -35,7 +35,8 @@ public class PlayerShooting : MonoBehaviour
     void Shoot()
     {
         m_nextFire = Time.time + m_fireRate;
-        Instantiate(m_Projectile, m_GunBarrel.position, m_GunBarrel.rotation);              
+        Instantiate(m_Projectile, m_GunBarrel.position, m_GunBarrel.rotation);
+        Debug.Log("OI");
     }
 
     #endregion
