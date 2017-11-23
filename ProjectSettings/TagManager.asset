@@ -41,12 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Environment
-    uniqueID: 3867099655
+  - name: Floor
+    uniqueID: 51608907
     locked: 0
-  - name: Objects
-    uniqueID: 4282278989
-    locked: 0
-  - name: Interactable
-    uniqueID: 3036275601
+  - name: Playable
+    uniqueID: 816160509
     locked: 0

@@ -12,8 +12,7 @@ public class PlayerMovement2D : MonoBehaviour
 
     private int m_FloorMask;
     private float m_CamRayLenght = 100f;
-
-    private Animator m_animator;
+    
     private bool m_isWalking = false;
     
     private Rigidbody2D m_rigidbody2D;
@@ -29,7 +28,6 @@ public class PlayerMovement2D : MonoBehaviour
         m_FloorMask = LayerMask.GetMask("Floor");
 
         m_rigidbody2D = GetComponent<Rigidbody2D>();
-        m_animator = GetComponent<Animator>();
     }
     
     void FixedUpdate()
