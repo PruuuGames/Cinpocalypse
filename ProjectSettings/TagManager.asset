@@ -44,6 +44,9 @@ TagManager:
   - name: Floor
     uniqueID: 51608907
     locked: 0
-  - name: Playable
+  - name: Blockable
     uniqueID: 816160509
+    locked: 0
+  - name: Playable
+    uniqueID: 2175929393
     locked: 0
