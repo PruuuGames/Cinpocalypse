@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour {
     #region Variables
 
-    private Animator m_animator;
+    //private Animator m_animator;
     private bool m_playerDead;
-    private bool m_playerDamaged;
 
-    public int m_startingHealth;
-    public int m_currentHealth;
-
-    public Slider m_healthSlider;
-
-    public Image m_damageImage;
-    public float m_flashSpeed = 5f;
-    public Color m_flashColor = new Color(1f, 0f, 0f, 0.1f);
+    [Header("-Health-")]
+    [Space]
+    public float m_StartingHealth = 100f;
+    public float m_CurrentHealth;
+    public Slider m_Slider;
+    public Image m_FillImage;
+    public Color m_FullHealthColor = Color.green;
+    public Color m_ZeroHealthColor = Color.red;
+    
 
     #endregion
 
@@ -26,18 +26,13 @@ public class PlayerHealth : MonoBehaviour {
 	void Awake ()
     {
         //m_animator = GetComponent <Animator> ();
-        m_currentHealth = m_startingHealth;
+        m_CurrentHealth = m_StartingHealth;
+        m_playerDead = false;
+        SetHealthUI();
     }	
 
 	void Update () {
-        if (m_playerDamaged)
-        {
-            m_damageImage.color = m_flashColor;
-        } else
-        {
-            m_damageImage.color = Color.Lerp(m_damageImage.color, Color.clear, m_flashSpeed * Time.deltaTime);
-        }
-        m_playerDamaged = false;
+        
 	}
 
     #endregion
@@ -45,27 +40,28 @@ public class PlayerHealth : MonoBehaviour {
     #region UserMethods
 	
 	public void TakeDamage (int amount){
-		m_playerDamaged = true;
-		
-		m_currentHealth -= amount;
-				
-		m_healthSlider.value = m_currentHealth;
-		
-		//Player Damaged Sound
-		
-		if(m_currentHealth <= 0 && !m_playerDead){
-			Death();
-		}
-		
-	}
+        m_CurrentHealth -= amount;
+
+        //TODO Damage Sound
+        SetHealthUI();
+
+        if (m_CurrentHealth < 0 && !m_playerDead)
+        {
+            Death();
+        }
+    }
 	
 	public void Death(){
-		m_playerDead = true;
-		
-		//m_animator.SetTrigger ("Die");		
-		//Player Dead Sound
+        m_playerDead = true;
+        //TODO Death Animation
 	}
-	
+
+    private void SetHealthUI()
+    {
+        m_Slider.value = m_CurrentHealth;
+        m_FillImage.color = Color.Lerp(m_ZeroHealthColor, m_FullHealthColor, m_CurrentHealth / m_StartingHealth);
+    }
+
     #endregion
 
     #region Get/Set
