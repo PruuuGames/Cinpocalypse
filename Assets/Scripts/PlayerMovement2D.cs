@@ -16,9 +16,11 @@ public class PlayerMovement2D : MonoBehaviour
     private bool m_isWalking = false;
     
     private Rigidbody2D m_rigidbody2D;
+    private Animator m_animator;
 
     public float m_moveSpeed = 5f;
-    public float m_turnSpeed = 5f;
+    public float m_turnSpeed = 5f;    
+
     #endregion
 
     #region UnityMethods
@@ -28,6 +30,7 @@ public class PlayerMovement2D : MonoBehaviour
         m_FloorMask = LayerMask.GetMask("Floor");
 
         m_rigidbody2D = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
     }
     
     void FixedUpdate()
@@ -39,7 +42,7 @@ public class PlayerMovement2D : MonoBehaviour
 
             Move(m_moveHorizontal, m_moveVertical);
             Turn();
-            //Animation(m_moveHorizontal, m_moveVertical);
+            Animation(m_moveHorizontal, m_moveVertical);
         }        
     }
 
@@ -67,11 +70,11 @@ public class PlayerMovement2D : MonoBehaviour
         }
     }
 
-    //void Animation(float horizontal, float vertical)
-    //{
-    //    m_isWalking = horizontal != 0f || vertical != 0f;
-    //    m_animator.SetBool("IsWalking", m_isWalking);
-    //}
+    void Animation(float horizontal, float vertical)
+    {
+        m_isWalking = horizontal != 0f || vertical != 0f;
+        m_animator.SetBool("IsWalking", m_isWalking);
+    }
     #endregion
 
     #region Get/Set
