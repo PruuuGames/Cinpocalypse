@@ -36,7 +36,6 @@ public class PlayerShooting : MonoBehaviour
     {
         m_nextFire = Time.time + m_fireRate;
         Instantiate(m_Projectile, m_GunBarrel.position, m_GunBarrel.rotation);
-        Debug.Log("OI");
     }
 
     #endregion

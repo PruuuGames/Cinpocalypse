@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour
+{
     #region Variables
-    private float speed = 2.5f;
+    public float speed = 2.5f;
     private Transform m_player;
     #endregion
 
     #region UnityMethods
-	
-	void Awake()
-	{
+
+    void Awake()
+    {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-	
-    void Start ()
-	{
-	
-	}
+
+    void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -31,23 +32,11 @@ public class EnemyMovement : MonoBehaviour {
         }
 
     }
-	void FixedUpdate()
-	{
-	
-	}
-	
-    #endregion
+    void FixedUpdate()
+    {
 
-    #region UserMethods
-	
-    #endregion
-	
-	#region Get/Set
-    
-    #endregion
+    }
 
-    #region Routines
-    
     #endregion
 }
 

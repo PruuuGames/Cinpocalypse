@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour {
+public class DestroyByContact : MonoBehaviour {
     #region Variables
 
     #endregion
@@ -28,19 +28,27 @@ public class EnemyHealth : MonoBehaviour {
 	{
 	
 	}
-	
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     #endregion
 
     #region UserMethods
-	
+
     #endregion
-	
-	#region Get/Set
-    
+
+    #region Get/Set
+
     #endregion
 
     #region Routines
-    
+
     #endregion
 }
 
