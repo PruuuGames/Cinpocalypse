@@ -188,7 +188,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.012542285, y: -0.004999995}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &114041855695377432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StartingHealth: 100
-  m_CurrentHealth: 0
+  m_CurrentHealth: 100
   m_Slider: {fileID: 114962743802543788}
   m_FillImage: {fileID: 114831330100803698}
   m_FullHealthColor: {r: 0, g: 1, b: 0, a: 1}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fireRate: 1
-  m_Projectile: {fileID: 1511869772059936, guid: 524b0281c86f8f44da1407da32058a02,
+  m_Projectile: {fileID: 1697486901503498, guid: a870e78470876d64998e75d8c33da05a,
     type: 2}
   m_GunBarrel: {fileID: 4059601182420764}
   m_playerDamage: 0
@@ -437,9 +437,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 816160509
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: -2119037903
+  m_SortingLayer: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300006, guid: 452450e4ca5bf0e4ab28f1cf5a4ff7f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -449,7 +449,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
 --- !u!222 &222500666946605368
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -479,8 +479,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2119037903
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &224124928315284888
 RectTransform:

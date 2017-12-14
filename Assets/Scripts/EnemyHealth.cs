@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            m_currentHealth -= 20;
+            m_currentHealth -= 50;
             if(m_currentHealth <= 0)
             {
                 Destroy(this.gameObject);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
     #region Variables
@@ -25,7 +26,6 @@ public class PlayerHealth : MonoBehaviour {
 	
 	void Awake ()
     {
-        //m_animator = GetComponent <Animator> ();
         m_CurrentHealth = m_StartingHealth;
         m_playerDead = false;
         SetHealthUI();
@@ -41,19 +41,19 @@ public class PlayerHealth : MonoBehaviour {
 	
 	public void TakeDamage (int amount){
         m_CurrentHealth -= amount;
-
-        //TODO Damage Sound
+        Debug.Log(m_CurrentHealth);
         SetHealthUI();
 
-        if (m_CurrentHealth < 0 && !m_playerDead)
+        if (m_CurrentHealth <= 0 && !m_playerDead)
         {
+            Debug.Log("Morreu");
             Death();
         }
     }
 	
 	public void Death(){
         m_playerDead = true;
-        //TODO Death Animation
+        SceneManager.LoadScene(1);
 	}
 
     private void SetHealthUI()

@@ -69,12 +69,10 @@ public class EnemyAttack : MonoBehaviour {
     void Attack()
     {
         m_timer = 0f;
-        m_animator.SetBool("Attack", true);
         if (m_playerHealth.m_CurrentHealth > 0)
         {
             m_playerHealth.TakeDamage(m_attackDamage);
         }
-        m_animator.SetBool("Attack", false);
     }
     #endregion
 
