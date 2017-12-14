@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
     #region Variables
     public int m_startingHealth;
+		private AudioSource audioSource;
+		public AudioClip[] dyingSounds;
     private int m_currentHealth;
     #endregion
 
@@ -17,7 +19,7 @@ public class EnemyHealth : MonoBehaviour {
 	
     void Start ()
 	{
-	
+		audioSource = this.GetComponent<AudioSource>();
 	}
 	
 	void Update ()
@@ -37,14 +39,27 @@ public class EnemyHealth : MonoBehaviour {
             m_currentHealth -= 50;
             if(m_currentHealth <= 0)
             {
-                Destroy(this.gameObject);
+							AudioClip randomSound = GetRandomSound();
+							audioSource.PlayOneShot(randomSound);
+							this.transform.position = new Vector3(-100, 0, 0);
+              StartCoroutine(WaitAndDie(randomSound));
             }
         }
     }
+		
+		IEnumerator WaitAndDie(AudioClip randomSound)
+		{
+			yield return new WaitForSeconds(randomSound.length);
+			Destroy(this.gameObject);
+		}
 
     #endregion
 
     #region UserMethods
+		private AudioClip GetRandomSound()
+		{
+			return dyingSounds[(int) (Mathf.Ceil(Random.value * 3) - 1)];
+		}
 
     #endregion
 
