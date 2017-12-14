@@ -9,16 +9,24 @@ public class PlayerShooting : MonoBehaviour
 
     private int m_equippedGun; // 1- Pistol 2- MachineGun 3- Shotgun
     private float m_nextFire;
+		private AudioSource audioSource;
 
     public float m_fireRate = 1f;
     public GameObject m_Projectile;
     public Transform m_GunBarrel;
+		
+		public AudioClip gunSound;
 
     public int m_playerDamage;
 
     #endregion
 
     #region UnityMethods
+		
+		void Start() 
+		{
+			audioSource = this.GetComponent<AudioSource>();
+		}
  
     void FixedUpdate()
     {
@@ -36,6 +44,8 @@ public class PlayerShooting : MonoBehaviour
     {
         m_nextFire = Time.time + m_fireRate;
         Instantiate(m_Projectile, m_GunBarrel.position, m_GunBarrel.rotation);
+				
+				audioSource.PlayOneShot(gunSound);
     }
 
     #endregion
